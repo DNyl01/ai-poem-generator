@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
    <link rel= "stylesheet" href="style.css"/>
     <title>Poem Generator</title>
-</head>
+    
+  </head>
 <body>
 
 <main>
@@ -16,7 +18,10 @@
         <input type="text" placeholder="What is the poem about?" style=" width: 213px"
         autofocus
         required 
-        autocomplete="off"/>
+        autocomplete="off"
+        class="instruction"
+        id="user-instructions"
+        />
     
     <input type="submit" />
     </form>
