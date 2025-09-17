@@ -1,22 +1,31 @@
-function displayPoem(response)
-{ console.log("Poem generated");
-   new Typewriter("#poem", {
-  strings: response.data.answer,
-  autoStart: true,
-  delay:1,
-  cursor:"",
+function displayPoem {(response)
 
+
+ console.log("Poem generated");
+  let text=  response.data.answer,
+   new Typewriter("#poem", {
+  
+  autoStart: true,
+  delay:35,
+  cursor:"",
+ strings: [text],
 
 });
 }
 
 function generatePoem (event)
 {event.preventDefault();
+
+let smallElement= document.querySelector("small");
+smallElement.style.opacity=0
+
   let inputElement=document.getElementById("user-instructions");
-  console.log("inputElelment.value");
+  console.log(inputElement.value);
+
   let apiKey= "bd75f0b07t2b8413f599c23a504017fo";
-  let context="´You are a sad but successful poet, famous for very short poems. Always follow the ${users-instructions}´. Output only a title on the first line and then the poem. Keep it to 3–6 lines. Separate each line with <br>. No explanations or extra text.";
-  let prompt=`user instrutions: Generate a poem about, ${inputElement.value}`;
+  let context=`Generate a poem about, ${inputElement.value} make it short, need a title and to be in verses all styled in the center
+  `;
+  let prompt=`Generate a poem about, ${inputElement.value}`;
  
   let apiURL=
   `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
